@@ -1,0 +1,26 @@
+﻿@model VOMO.Web.Models.Posts.PostsCreateViewModel
+
+@{
+    ViewBag.Title = "Create post";
+}
+
+<h1>Create post</h1>
+
+@using (Html.BeginForm("create", "posts", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary();
+    
+    <div class="form-group">
+        @Html.LabelFor(m => m.Title)
+        @Html.TextBoxFor(m => m.Title, new {@class = "form-control"})
+        @Html.ValidationMessageFor(m => m.Title)
+    </div>
+        
+    <div class="form-group">
+        @Html.LabelFor(m => m.Content)
+        @Html.TextAreaFor(m => m.Content, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Content)
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create post</button>
+}
