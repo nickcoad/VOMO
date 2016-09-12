@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VOMO.Web", "VOMO\VOMO.Web.csproj", "{0159D348-1EAD-42BC-BE53-3536E59CDEC7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VOMO.Web", "VOMO.Web\VOMO.Web.csproj", "{0159D348-1EAD-42BC-BE53-3536E59CDEC7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VOMO.Context", "VOMO.Context\VOMO.Context.csproj", "{868D9091-2244-45AE-B263-E3DEE887D4E0}"
 EndProject
