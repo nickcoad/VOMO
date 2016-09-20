@@ -158,6 +158,9 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Api\ApiAreaRegistration.cs" />
+    <Compile Include="Areas\Api\Controllers\PostsController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -184,6 +187,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\Api\Views\web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -236,6 +240,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Api\Models\" />
+    <Folder Include="Areas\Api\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -245,6 +251,14 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\VOMO.Api.Common\VOMO.Api.Common.csproj">
+      <Project>{dca80c46-9db0-494f-a1f6-47b83f1e3bdc}</Project>
+      <Name>VOMO.Api.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VOMO.Api.Models\VOMO.Api.Models.csproj">
+      <Project>{2bb160d5-f03d-4b89-839e-dd55281834cf}</Project>
+      <Name>VOMO.Api.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\VOMO.Common\VOMO.Common.csproj">
       <Project>{8188d648-4111-4a0c-98c7-6b9fe3d96337}</Project>
       <Name>VOMO.Common</Name>

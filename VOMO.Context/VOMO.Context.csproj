@@ -66,12 +66,21 @@
     <Compile Include="Entities\Role.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Interfaces\IHasAuditFields.cs" />
+    <Compile Include="Mappings\UserMap.cs" />
     <Compile Include="Mappings\TagMap.cs" />
     <Compile Include="Mappings\PostMap.cs" />
     <Compile Include="Mappings\AttachmentMap.cs" />
     <Compile Include="Migrations\201609120317366_Initial.cs" />
     <Compile Include="Migrations\201609120317366_Initial.Designer.cs">
       <DependentUpon>201609120317366_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609200538278_ExtraUserFields.cs" />
+    <Compile Include="Migrations\201609200538278_ExtraUserFields.Designer.cs">
+      <DependentUpon>201609200538278_ExtraUserFields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609200541365_AddAuditFieldsToUser.cs" />
+    <Compile Include="Migrations\201609200541365_AddAuditFieldsToUser.Designer.cs">
+      <DependentUpon>201609200541365_AddAuditFieldsToUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="VomoContext.cs" />
@@ -84,6 +93,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201609120317366_Initial.resx">
       <DependentUpon>201609120317366_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609200538278_ExtraUserFields.resx">
+      <DependentUpon>201609200538278_ExtraUserFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609200541365_AddAuditFieldsToUser.resx">
+      <DependentUpon>201609200541365_AddAuditFieldsToUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

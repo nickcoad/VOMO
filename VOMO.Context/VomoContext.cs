@@ -35,6 +35,7 @@ namespace VOMO.Context
             modelBuilder.Configurations.Add(new AttachmentMap());
             modelBuilder.Configurations.Add(new PostMap());
             modelBuilder.Configurations.Add(new TagMap());
+            modelBuilder.Configurations.Add(new UserMap());
         }
 
         public static VomoContext Create()
