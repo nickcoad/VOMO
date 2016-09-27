@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace VOMO.Web.Areas.api
+namespace VOMO.Web.Areas.Api
 {
     public class ApiAreaRegistration : AreaRegistration 
     {
@@ -17,8 +17,11 @@ namespace VOMO.Web.Areas.api
             context.MapRoute(
                 "api_default",
                 "api/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { action = "Index", id = UrlParameter.Optional },
+                new[] { "VOMO.Web.Areas.Api.Controllers" }
             );
+
+            
         }
     }
 }

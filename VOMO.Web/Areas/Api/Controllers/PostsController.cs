@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
+using ExpressMapper;
+using ExpressMapper.Extensions;
 using VOMO.Api.Models;
 using VOMO.Api.Models.Resources;
 using VOMO.Common;
@@ -17,12 +19,11 @@ namespace VOMO.Web.Areas.Api.Controllers
         [HttpGet]
         public JsonResult Index()
         {
-            var posts = Vomo.Posts.ToList();
-            var postResources = Mapper.Map<Post, PostResource>(posts);
-            
+            var posts = Vomo.Posts.Project<Post, PostResource>().ToList();
+
             var apiResponse = new ApiResponse<List<PostResource>>
             {
-                Data = postResources
+                Data = posts
             };
 
             return Json(apiResponse, JsonRequestBehavior.AllowGet);

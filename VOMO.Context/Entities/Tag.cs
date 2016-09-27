@@ -15,7 +15,7 @@ namespace VOMO.Context.Entities
         #region Metadata
 
         public string Name { get; set; }
-        public string Stub { get; set; }
+        public string Slug { get; set; }
 
         #endregion
         

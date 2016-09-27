@@ -16,7 +16,7 @@ namespace VOMO.Context.Mappings
             HasKey(a => a.Id);
 
             Property(x => x.Name).HasMaxLength(50).IsRequired();
-            Property(x => x.Stub).HasMaxLength(50).IsRequired();
+            Property(x => x.Slug).HasMaxLength(50).IsRequired();
             Property(x => x.CreatedAt).IsRequired();
             Property(x => x.UpdatedAt).IsRequired();
         }

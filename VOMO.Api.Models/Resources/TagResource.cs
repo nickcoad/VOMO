@@ -15,8 +15,8 @@ namespace VOMO.Api.Models.Resources
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
-        [JsonProperty(PropertyName = "stub")]
-        public string Stub { get; set; }
+        [JsonProperty(PropertyName = "slug")]
+        public string Slug { get; set; }
 
         [JsonProperty(PropertyName = "created_at")]
         public DateTime CreatedAt { get; set; }

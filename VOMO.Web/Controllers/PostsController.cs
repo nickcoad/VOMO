@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ExpressMapper.Extensions;
 using VOMO.Context.Entities;
-using VOMO.Web.Mappers;
 using VOMO.Web.Models;
 using VOMO.Web.Models.Posts;
 
@@ -16,10 +16,8 @@ namespace VOMO.Web.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            var posts = Vomo.Posts.OrderByDescending(post => post.CreatedAt).ToList();
-            var postViewModels = PostToPostViewModelMapping.Map(posts);
-
-            return View(new PostsIndexViewModel { Posts = postViewModels.ToList() });
+            var posts = Vomo.Posts.OrderByDescending(post => post.CreatedAt).Project<Post, PostViewModel>().ToList();
+            return View(new PostsIndexViewModel { Posts = posts });
         }
 
         [HttpGet]

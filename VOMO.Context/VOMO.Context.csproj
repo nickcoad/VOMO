@@ -82,6 +82,14 @@
     <Compile Include="Migrations\201609200541365_AddAuditFieldsToUser.Designer.cs">
       <DependentUpon>201609200541365_AddAuditFieldsToUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201609260313418_GetUpToDate.cs" />
+    <Compile Include="Migrations\201609260313418_GetUpToDate.Designer.cs">
+      <DependentUpon>201609260313418_GetUpToDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609260328509_RenameStubToSlug.cs" />
+    <Compile Include="Migrations\201609260328509_RenameStubToSlug.Designer.cs">
+      <DependentUpon>201609260328509_RenameStubToSlug.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="VomoContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -99,6 +107,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201609200541365_AddAuditFieldsToUser.resx">
       <DependentUpon>201609200541365_AddAuditFieldsToUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609260313418_GetUpToDate.resx">
+      <DependentUpon>201609260313418_GetUpToDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609260328509_RenameStubToSlug.resx">
+      <DependentUpon>201609260328509_RenameStubToSlug.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
