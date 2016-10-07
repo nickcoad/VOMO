@@ -1,26 +1,33 @@
-﻿@model VOMO.Web.Models.Posts.PostsCreateViewModel
+﻿@using VOMO.Web.Infrastructure.Extensions
+@model VOMO.Web.Models.Posts.PostsCreateViewModel
 
 @{
     ViewBag.Title = "Create post";
 }
 
 <h1>Create post</h1>
-
-@using (Html.BeginForm("create", "posts", FormMethod.Post, new { enctype = "multipart/form-data" }))
+<hr/>
+@using (Html.BeginForm("create", "posts", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
 {
-    @Html.ValidationSummary();
-    
     <div class="form-group">
-        @Html.LabelFor(m => m.Title)
-        @Html.TextBoxFor(m => m.Title, new {@class = "form-control"})
-        @Html.ValidationMessageFor(m => m.Title)
+        @Html.BootstrapLabelFor(m => m.Title)
+        <div class="col-md-10">
+            @Html.EditorFor(m => m.Title)
+            @Html.ValidationMessageFor(m => m.Title)
+        </div>
     </div>
-        
+       
     <div class="form-group">
-        @Html.LabelFor(m => m.Content)
-        @Html.TextAreaFor(m => m.Content, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Content)
+        @Html.BootstrapLabelFor(m => m.Content)
+        <div class="col-md-10">
+            @Html.EditorFor(m => m.Content)
+            @Html.ValidationMessageFor(m => m.Content)
+        </div>
     </div>
 
-    <button type="submit" class="btn btn-primary">Create post</button>
+    <div class="form-group">
+        <div class="col-md-10 col-md-offset-2">
+            <button type="submit" class="btn btn-primary">Create post</button>
+        </div>
+    </div>
 }

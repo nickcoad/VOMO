@@ -39,13 +39,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ExpressMapper, Version=1.8.3.0, Culture=neutral, PublicKeyToken=ac363faa09311ba0, processorArchitecture=MSIL">
-      <HintPath>..\packages\Expressmapper.1.8.3\lib\net45\ExpressMapper.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SimpleInjector, Version=3.2.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.3.2.2\lib\net45\SimpleInjector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SimpleInjector.Integration.Web, Version=3.2.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.Integration.Web.3.2.2\lib\net40\SimpleInjector.Integration.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SimpleInjector.Integration.Web.Mvc, Version=3.2.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.Integration.Web.Mvc.3.2.2\lib\net40\SimpleInjector.Integration.Web.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -174,6 +182,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\Extensions\HtmlHelperExtensions.cs" />
+    <Compile Include="Infrastructure\ModelMetadata\ExtensibleModelMetadataProvider.cs" />
+    <Compile Include="Infrastructure\ModelMetadata\IModelMetadataFilter.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Posts\PostsCreateViewModel.cs" />
@@ -183,15 +194,96 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\site.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Api\Views\web.config" />
+    <Content Include="Content\less\site.less" />
+    <Content Include="Content\css\site.css.map">
+      <DependentUpon>site.css</DependentUpon>
+    </Content>
+    <Content Include="Content\less\bootstrap.less" />
+    <Content Include="Content\less\bootstrap\.csscomb.json" />
+    <Content Include="Content\less\bootstrap\.csslintrc" />
+    <Content Include="Content\less\bootstrap\alerts.less" />
+    <Content Include="Content\less\bootstrap\badges.less" />
+    <Content Include="Content\less\bootstrap\bootstrap.less" />
+    <Content Include="Content\less\bootstrap\breadcrumbs.less" />
+    <Content Include="Content\less\bootstrap\button-groups.less" />
+    <Content Include="Content\less\bootstrap\buttons.less" />
+    <Content Include="Content\less\bootstrap\carousel.less" />
+    <Content Include="Content\less\bootstrap\close.less" />
+    <Content Include="Content\less\bootstrap\code.less" />
+    <Content Include="Content\less\bootstrap\component-animations.less" />
+    <Content Include="Content\less\bootstrap\dropdowns.less" />
+    <Content Include="Content\less\bootstrap\forms.less" />
+    <Content Include="Content\less\bootstrap\glyphicons.less" />
+    <Content Include="Content\less\bootstrap\grid.less" />
+    <Content Include="Content\less\bootstrap\input-groups.less" />
+    <Content Include="Content\less\bootstrap\jumbotron.less" />
+    <Content Include="Content\less\bootstrap\labels.less" />
+    <Content Include="Content\less\bootstrap\list-group.less" />
+    <Content Include="Content\less\bootstrap\media.less" />
+    <Content Include="Content\less\bootstrap\mixins.less" />
+    <Content Include="Content\less\bootstrap\mixins\alerts.less" />
+    <Content Include="Content\less\bootstrap\mixins\background-variant.less" />
+    <Content Include="Content\less\bootstrap\mixins\border-radius.less" />
+    <Content Include="Content\less\bootstrap\mixins\buttons.less" />
+    <Content Include="Content\less\bootstrap\mixins\center-block.less" />
+    <Content Include="Content\less\bootstrap\mixins\clearfix.less" />
+    <Content Include="Content\less\bootstrap\mixins\forms.less" />
+    <Content Include="Content\less\bootstrap\mixins\gradients.less" />
+    <Content Include="Content\less\bootstrap\mixins\grid-framework.less" />
+    <Content Include="Content\less\bootstrap\mixins\grid.less" />
+    <Content Include="Content\less\bootstrap\mixins\hide-text.less" />
+    <Content Include="Content\less\bootstrap\mixins\image.less" />
+    <Content Include="Content\less\bootstrap\mixins\labels.less" />
+    <Content Include="Content\less\bootstrap\mixins\list-group.less" />
+    <Content Include="Content\less\bootstrap\mixins\nav-divider.less" />
+    <Content Include="Content\less\bootstrap\mixins\nav-vertical-align.less" />
+    <Content Include="Content\less\bootstrap\mixins\opacity.less" />
+    <Content Include="Content\less\bootstrap\mixins\pagination.less" />
+    <Content Include="Content\less\bootstrap\mixins\panels.less" />
+    <Content Include="Content\less\bootstrap\mixins\progress-bar.less" />
+    <Content Include="Content\less\bootstrap\mixins\reset-filter.less" />
+    <Content Include="Content\less\bootstrap\mixins\reset-text.less" />
+    <Content Include="Content\less\bootstrap\mixins\resize.less" />
+    <Content Include="Content\less\bootstrap\mixins\responsive-visibility.less" />
+    <Content Include="Content\less\bootstrap\mixins\size.less" />
+    <Content Include="Content\less\bootstrap\mixins\tab-focus.less" />
+    <Content Include="Content\less\bootstrap\mixins\table-row.less" />
+    <Content Include="Content\less\bootstrap\mixins\text-emphasis.less" />
+    <Content Include="Content\less\bootstrap\mixins\text-overflow.less" />
+    <Content Include="Content\less\bootstrap\mixins\vendor-prefixes.less" />
+    <Content Include="Content\less\bootstrap\modals.less" />
+    <Content Include="Content\less\bootstrap\navbar.less" />
+    <Content Include="Content\less\bootstrap\navs.less" />
+    <Content Include="Content\less\bootstrap\normalize.less" />
+    <Content Include="Content\less\bootstrap\pager.less" />
+    <Content Include="Content\less\bootstrap\pagination.less" />
+    <Content Include="Content\less\bootstrap\panels.less" />
+    <Content Include="Content\less\bootstrap\popovers.less" />
+    <Content Include="Content\less\bootstrap\print.less" />
+    <Content Include="Content\less\bootstrap\progress-bars.less" />
+    <Content Include="Content\less\bootstrap\responsive-embed.less" />
+    <Content Include="Content\less\bootstrap\responsive-utilities.less" />
+    <Content Include="Content\less\bootstrap\scaffolding.less" />
+    <Content Include="Content\less\bootstrap\tables.less" />
+    <Content Include="Content\less\bootstrap\theme.less" />
+    <Content Include="Content\less\bootstrap\thumbnails.less" />
+    <Content Include="Content\less\bootstrap\tooltip.less" />
+    <Content Include="Content\less\bootstrap\type.less" />
+    <Content Include="Content\less\bootstrap\utilities.less" />
+    <Content Include="Content\less\bootstrap\variables.less" />
+    <Content Include="Content\less\bootstrap\wells.less" />
+    <Content Include="Content\css\bootstrap.css.map">
+      <DependentUpon>bootstrap.css</DependentUpon>
+    </Content>
+    <Content Include="Content\less\bootstrap-variables.less" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -203,6 +295,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\site.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -241,6 +334,9 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Posts\Index.cshtml" />
     <Content Include="Views\Posts\Create.cshtml" />
+    <Content Include="Views\Shared\Components\Post.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\String.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\MultilineText.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

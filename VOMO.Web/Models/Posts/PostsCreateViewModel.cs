@@ -10,7 +10,7 @@ namespace VOMO.Web.Models.Posts
     {
         public string Title { get; set; }
 
-        [Required]
+        [Required, DataType(DataType.MultilineText)]
         public string Content { get; set; }
 
         public string AttachmentMimeType { get; set; }

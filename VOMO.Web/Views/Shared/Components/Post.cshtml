@@ -1,0 +1,13 @@
+﻿@model VOMO.Web.Models.PostViewModel
+
+<article class="post-container">
+    <header class="post-header">
+        <h2 class="post-title">@Model.Title</h2>
+        <span class="post-meta">
+            Created: @Model.CreatedAt | Updated: @Model.UpdatedAt
+        </span>
+    </header>
+    <div class="post-content">
+        @Model.Content
+    </div>
+</article>
